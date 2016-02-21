@@ -42,6 +42,7 @@
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addAScriptToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.renameScriptToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeScriptToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.scriptsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -178,7 +179,7 @@
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -187,6 +188,7 @@
             this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addAScriptToolStripMenuItem,
             this.toolStripSeparator1,
+            this.renameScriptToolStripMenuItem,
             this.removeScriptToolStripMenuItem});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
@@ -195,21 +197,28 @@
             // addAScriptToolStripMenuItem
             // 
             this.addAScriptToolStripMenuItem.Name = "addAScriptToolStripMenuItem";
-            this.addAScriptToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.addAScriptToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.addAScriptToolStripMenuItem.Text = "Add A Script";
             this.addAScriptToolStripMenuItem.Click += new System.EventHandler(this.addAScriptToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(147, 6);
+            // 
+            // renameScriptToolStripMenuItem
+            // 
+            this.renameScriptToolStripMenuItem.Name = "renameScriptToolStripMenuItem";
+            this.renameScriptToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.renameScriptToolStripMenuItem.Text = "Rename Script";
+            this.renameScriptToolStripMenuItem.Click += new System.EventHandler(this.renameScriptToolStripMenuItem_Click);
             // 
             // removeScriptToolStripMenuItem
             // 
             this.removeScriptToolStripMenuItem.Name = "removeScriptToolStripMenuItem";
-            this.removeScriptToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.removeScriptToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.removeScriptToolStripMenuItem.Text = "Remove Script";
-            this.removeScriptToolStripMenuItem.Click += new System.EventHandler(this.deleteScriptToolStripMenuItem_Click);
+            this.removeScriptToolStripMenuItem.Click += new System.EventHandler(this.removeScriptToolStripMenuItem_Click);
             // 
             // scriptsToolStripMenuItem
             // 
@@ -259,6 +268,7 @@
             this.Controls.Add(this.showConsoleButton);
             this.Controls.Add(this.consoleControl);
             this.Controls.Add(this.toolboxMenuScript);
+            this.KeyPreview = true;
             this.MainMenuStrip = this.toolboxMenuScript;
             this.MinimumSize = new System.Drawing.Size(791, 421);
             this.Name = "Toolbox";
@@ -292,6 +302,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem renameScriptToolStripMenuItem;
     }
 }
 

@@ -12,6 +12,7 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -69,6 +70,12 @@
     <Compile Include="removeScriptForm.Designer.cs">
       <DependentUpon>removeScriptForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="renameScriptForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="renameScriptForm.Designer.cs">
+      <DependentUpon>renameScriptForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Toolbox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +90,9 @@
     <EmbeddedResource Include="removeScriptForm.resx">
       <DependentUpon>removeScriptForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="renameScriptForm.resx">
+      <DependentUpon>renameScriptForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Toolbox.resx">
       <DependentUpon>Toolbox.cs</DependentUpon>
     </EmbeddedResource>
@@ -94,10 +104,9 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="app.manifest">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="app.manifest" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -110,7 +119,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="scriptConfig.xml">

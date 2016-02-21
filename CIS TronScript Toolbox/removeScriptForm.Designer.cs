@@ -50,7 +50,7 @@
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(74, 27);
             this.deleteButton.TabIndex = 1;
-            this.deleteButton.Text = "Remove";
+            this.deleteButton.Text = "&Remove";
             this.deleteButton.UseVisualStyleBackColor = true;
             this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
@@ -60,19 +60,20 @@
             this.okButton.Location = new System.Drawing.Point(81, 211);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(74, 27);
-            this.okButton.TabIndex = 5;
-            this.okButton.Text = "OK";
+            this.okButton.TabIndex = 3;
+            this.okButton.Text = "&OK";
             this.okButton.UseVisualStyleBackColor = true;
             this.okButton.Click += new System.EventHandler(this.okButton_Click);
             // 
             // cancelButton
             // 
+            this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cancelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.cancelButton.Location = new System.Drawing.Point(161, 211);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(74, 27);
-            this.cancelButton.TabIndex = 6;
-            this.cancelButton.Text = "Cancel";
+            this.cancelButton.TabIndex = 3;
+            this.cancelButton.Text = "&Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
@@ -82,19 +83,22 @@
             this.label1.Location = new System.Drawing.Point(112, 176);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 7;
+            this.label1.TabIndex = 2;
             this.label1.Text = "label1";
             // 
             // removeScriptForm
             // 
+            this.AcceptButton = this.okButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.cancelButton;
             this.ClientSize = new System.Drawing.Size(246, 250);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.okButton);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.scriptsListBox);
+            this.KeyPreview = true;
             this.Name = "removeScriptForm";
             this.Text = "Modify Scripts";
             this.ResumeLayout(false);

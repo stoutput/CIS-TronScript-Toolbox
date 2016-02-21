@@ -2,6 +2,10 @@
 <Scripts>
   <Script>
     <name>Tron</name>
-    <file>E:\CIS-TronScript-Toolbox-master\tron\Tron.bat</file>
+    <file>J:\CIS-TronScript-Toolbox-master\tron\Tron.bat</file>
+  </Script>
+  <Script>
+    <name>BELIEVE</name>
+    <file>MAKEBELIEVEBATFILE</file>
   </Script>
 </Scripts>

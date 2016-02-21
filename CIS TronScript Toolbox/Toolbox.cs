@@ -476,10 +476,10 @@ namespace CIS_TronScript_Toolbox
                 XElement xnewScript = XElement.Load(@"J:\CIS-TronScript-Toolbox-master\CIS TronScript Toolbox\scriptConfig.xml");
 
                 //Add name of script and file
-                //Will look like <Script>
-                //                  <name> user input </name>
-                //                  <file> filelocation </file>
-                //               </Script>
+                //XML elements will look like <Script>
+                //                               <name> user input </name>
+                //                               <file> filelocation </file>
+                //                            </Script>
                 //Modify this for further options if necessary
                 xnewScript.Add(new XElement("Script", 
                     new XElement("name", scriptName),
@@ -503,34 +503,60 @@ namespace CIS_TronScript_Toolbox
             this.Close();
         }
 
-        private void deleteScriptToolStripMenuItem_Click(object sender, EventArgs e)
+        private void removeScriptToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //Initializing the variables
-            string scriptName;
-            string scriptLocation;
-            
-            //Open the form for user to input the name of the script
             using (removeScriptForm testDialog = new removeScriptForm())
-            { // Show testDialog as a modal dialog and determine if DialogResult = OK.
+            { 
                 testDialog.ShowDialog();
             }
 
-            ////Open file dialog to get the script location
-            //OpenFileDialog scriptDialog = new OpenFileDialog();
-            //scriptDialog.DefaultExt = "*.*";
-            //DialogResult scriptDialogResult = scriptDialog.ShowDialog();
-            //if (scriptDialogResult == DialogResult.OK)
-            //{
-            //    scriptLocation = scriptDialog.FileName;
-            //    label1.Text = scriptLocation;
-            //    //addScriptForm testDialog = new addScriptForm();
+        }
 
-             
+        private void renameScriptToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Can perhaps take the code from removeScriptForm and modify it so that it returns user selection
+            //and the script gets removed or added here. It'd make this main form code a little longer, though. Perhaps best to keep them isolated.
+           // using ()
 
+            using (renameScriptForm testDialog = new renameScriptForm())
+            {
+                testDialog.ShowDialog();
+            }
 
-            //}
-            //else
-            //    return;
+            //Need to write code to refresh the dropdown menu with the updated name here. Otherwise this works.
+
+            scriptsToolStripMenuItem.DropDownItems.Clear();
+
+            //Initializing the Script drop-down menu items
+            XElement config = XElement.Load(@"J:\CIS-TronScript-Toolbox-master\CIS TronScript Toolbox\scriptConfig.xml");
+            IEnumerable<XElement> scripts = config.Elements();
+            int count = config.Descendants("name").Count();
+
+            ToolStripMenuItem[] Scripts = new ToolStripMenuItem[count];
+            int i = 0;
+            foreach (var script in scripts)
+            {
+                //This code was sort of bad
+                //scriptsToolStripMenuItem.DropDownItems.Add(script.Element("name").Value);
+                //scriptsToolStripMenuItem.DropDownItemClicked += new ToolStripItemClickedEventHandler(RunScript);
+
+                //This dynamically creates new menu item with the name of the script
+                //It also links the menu item with a dynamic event-handler
+                Scripts[i] = new ToolStripMenuItem();
+                Scripts[i].Name = script.Element("file").Value;
+                Scripts[i].Tag = script.Element("file").Value;
+                Scripts[i].Text = script.Element("name").Value;
+                Scripts[i].Click += new EventHandler(RunScript);
+                i++;
+            }
+
+            //Add each script as a drop down item
+            scriptsToolStripMenuItem.DropDownItems.AddRange(Scripts);
+
+            //Don't minimize this window on load
+            this.WindowState = FormWindowState.Normal;
+            
+
         }
 
 
