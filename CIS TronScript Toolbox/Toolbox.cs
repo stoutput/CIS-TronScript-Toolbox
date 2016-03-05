@@ -29,9 +29,9 @@ namespace CIS_TronScript_Toolbox
         public Queue<Process> Processes = new Queue<Process>();
 
         //List of manual tools paths to run on click
-        private string[] manualTools = Directory.GetFiles(@"J:\CIS-TronScript-Toolbox-master\tron\resources\stage_8_manual_tools", "*.exe");
-        
-        
+        private string[] manualTools = Directory.GetFiles(Directory.GetParent(Directory.GetCurrentDirectory().ToString()).ToString() + @"\stage_8_manual_tools", "*.exe");
+
+
         public Toolbox()
         {
             InitializeComponent();
@@ -43,7 +43,7 @@ namespace CIS_TronScript_Toolbox
             }
 
             //Initializing the Script drop-down menu items
-            XElement config = XElement.Load(@"J:\CIS-TronScript-Toolbox-master\CIS TronScript Toolbox\scriptConfig.xml");
+            XElement config = XElement.Load(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).ToString()).ToString() + @"\scriptConfig.xml");    //relative path (looks in grandparent folder) -- CHANGE to same folder for final release
             IEnumerable<XElement> scripts = config.Elements();
             int count = config.Descendants("name").Count();
 
